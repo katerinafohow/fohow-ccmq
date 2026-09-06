@@ -833,6 +833,16 @@ button, .btn, .share-btn{
   }
 }
 
+
+/* --- v10 deliberate tap feedback --- */
+.answer.tap-selected{
+  background:rgba(243,199,95,.22) !important;
+  border-color:rgba(255,215,120,.95) !important;
+  color:#fff !important;
+  box-shadow:0 0 0 2px rgba(243,199,95,.12), 0 8px 22px rgba(0,0,0,.14) !important;
+  transform:scale(.985) !important;
+}
+
 </style>
 </head>
 <body>
@@ -857,14 +867,20 @@ const opts=[["Никогда",1],["Редко",2],["Иногда",3],["Част�
 let a=Array(60).fill(null),i=0;
 const app=document.getElementById("app");
 function intro(){app.innerHTML=`<div class="kicker">FOHOW • Практическая встреча</div><h1>Моя конституция</h1><div class="subtitle">Понять себя и увидеть свою картину</div><p>60 коротких вопросов о вашем обычном состоянии. Здесь нет правильных и неправильных ответов — выбирайте то, что ближе всего к вашим ощущениям за последний год.</p><p><strong>Около 7–10 минут.</strong> В конце вы получите свой профиль CCMQ. Сохраните его — на встрече мы будем работать именно с вашей картой.</p><button class="btn primary" onclick="q()">Начать анкету</button>`}
-function q(){let p=Math.round(i/60*100);app.innerHTML=`<div class="progress"><b style="width:${p}%"></b></div><div class="meta"><span>Ваш профиль формируется</span><span>${p}%</span></div><div class="question-wrap"><h2>${Q[i]}</h2></div><div id="answers">${opts.map(x=>`<button class="btn answer" onclick="pick(${x[1]})">${x[0]}</button>`).join("")}</div>`}
-function pick(v){
-  if(document.activeElement && document.activeElement.blur) document.activeElement.blur();
-  a[i]=v;
-  i++;
-  if(i>=60)return result();
-  if([10,20,30,40,50].includes(i))return mile();
-  q()
+function q(){let p=Math.round(i/60*100);app.innerHTML=`<div class="progress"><b style="width:${p}%"></b></div><div class="meta"><span>Ваш профиль формируется</span><span>${p}%</span></div><div class="question-wrap"><h2>${Q[i]}</h2></div><div id="answers">${opts.map(x=>`<button class="btn answer" onclick="pick(${x[1]}, this)">${x[0]}</button>`).join("")}</div>`}
+function pick(v, el){
+  const buttons=[...document.querySelectorAll(".answer")];
+  buttons.forEach(b=>b.disabled=true);
+  if(el) el.classList.add("tap-selected");
+
+  setTimeout(()=>{
+    if(document.activeElement && document.activeElement.blur) document.activeElement.blur();
+    a[i]=v;
+    i++;
+    if(i>=60)return result();
+    if([10,20,30,40,50].includes(i))return mile();
+    q();
+  },140);
 }
 function mile(){let m={10:"Профиль уже начинает складываться.",20:"Хороший темп. Продолжайте отвечать интуитивно.",30:"Больше половины пути уже позади.",40:"Картина становится всё точнее.",50:"Осталось совсем немного."};let p=Math.round(i/60*100);app.innerHTML=`<div class="progress"><b style="width:${p}%"></b></div><div class="mid"><div class="kicker">Ваш профиль формируется • ${p}%</div><h2>${m[i]}</h2><p>Не анализируйте ответы слишком долго — выбирайте то, что чаще всего похоже на ваше обычное состояние.</p><button class="btn primary" onclick="q()">Продолжить</button></div>`}
 function score(name,qs){let sum=0;qs.forEach(n=>{let v=a[n-1];if(name==="Сбалансированный тип"&&R.includes(n))v=6-v;sum+=v});let N=qs.length;return (sum-N)*100/(N*4)}
