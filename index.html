@@ -167,7 +167,7 @@ p strong{color:#fff}
   background:linear-gradient(180deg,#ffd873,#e7b84b);
   box-shadow:0 8px 28px rgba(239,190,76,.22),inset 0 1px rgba(255,255,255,.55);
 }
-.btn:not(.answer):hover{transform:translateY(-1px);box-shadow:0 12px 32px rgba(239,190,76,.3)}
+
 .answer{
   background:rgba(255,255,255,.035);
   color:#f8f8f1;
@@ -175,11 +175,7 @@ p strong{color:#fff}
   text-align:left;
   font-weight:700;
 }
-.answer:hover{
-  transform:translateX(3px);
-  border-color:rgba(255,215,120,.72);
-  background:rgba(243,199,95,.09);
-}
+
 .progress{
   position:relative;
   z-index:1;
@@ -309,9 +305,7 @@ h2{
   background:rgba(255,255,255,.045);
 }
 
-.answer:hover{
-  transform:translateY(-1px);
-}
+
 
 #answers{
   margin-top:8px;
@@ -381,10 +375,7 @@ h2{
   border:1.5px solid rgba(241,196,92,.30) !important;
   box-shadow:inset 0 1px rgba(255,255,255,.035);
 }
-#answers .btn.answer:hover{
-  background:rgba(241,196,92,.12) !important;
-  border-color:rgba(255,216,120,.78) !important;
-}
+#answers .btn
 .btn.primary{
   display:flex !important;
   align-items:center !important;
@@ -643,6 +634,205 @@ h2{
   }
 }
 
+
+/* --- v8 mobile-first refinement --- */
+
+/* Desktop/tablet: preserve representative header, but make it cleaner */
+.topbar{
+  align-items:flex-start !important;
+  margin-bottom:22px !important;
+}
+.author-block{
+  max-width:420px !important;
+}
+.author-link{
+  display:none !important; /* contacts moved to result area */
+}
+
+/* Main card breathing */
+.hero-card{
+  padding-top:40px !important;
+}
+
+/* Mobile */
+@media(max-width:700px){
+  body{
+    padding-bottom:calc(96px + env(safe-area-inset-bottom)) !important;
+  }
+
+  .page{
+    padding-left:18px !important;
+    padding-right:18px !important;
+  }
+
+  .topbar{
+    display:grid !important;
+    grid-template-columns:auto 1fr !important;
+    align-items:center !important;
+    gap:18px !important;
+    margin-bottom:20px !important;
+  }
+
+  .topbar .brand img{
+    width:150px !important;
+    max-width:42vw !important;
+  }
+
+  .author-block{
+    max-width:none !important;
+    text-align:left !important;
+  }
+
+  .author-name{
+    font-size:17px !important;
+    line-height:1.08 !important;
+    margin:0 !important;
+  }
+
+  .author-role{
+    margin-top:6px !important;
+    font-size:10.8px !important;
+    line-height:1.3 !important;
+    font-weight:600 !important;
+  }
+
+  .author-role span{
+    display:block !important;
+  }
+
+  .hero-card{
+    padding:30px 26px 34px !important;
+    border-radius:28px !important;
+  }
+
+  .eyebrow{
+    font-size:12px !important;
+    letter-spacing:.20em !important;
+    line-height:1.25 !important;
+    margin-bottom:18px !important;
+  }
+
+  .hero-title{
+    font-size:clamp(48px, 14vw, 68px) !important;
+    line-height:.92 !important;
+    letter-spacing:-.025em !important;
+    margin-bottom:22px !important;
+  }
+
+  .hero-subtitle{
+    font-size:clamp(26px, 7vw, 35px) !important;
+    line-height:1.02 !important;
+    margin-bottom:24px !important;
+  }
+
+  .intro{
+    font-size:18px !important;
+    line-height:1.48 !important;
+  }
+
+  .time-note{
+    margin-top:24px !important;
+    font-size:17px !important;
+    line-height:1.45 !important;
+  }
+
+  .start-btn,
+  .btn.primary{
+    width:100% !important;
+    min-height:58px !important;
+    font-size:18px !important;
+    margin-top:26px !important;
+  }
+}
+
+/* iPhone 13-ish portrait and smaller */
+@media(max-width:430px){
+  .page{
+    padding-top:18px !important;
+  }
+
+  .topbar{
+    grid-template-columns:132px 1fr !important;
+    gap:14px !important;
+    margin-bottom:16px !important;
+  }
+
+  .topbar .brand img{
+    width:132px !important;
+    max-width:none !important;
+  }
+
+  .author-name{
+    font-size:15.5px !important;
+  }
+
+  .author-role{
+    font-size:9.7px !important;
+    line-height:1.28 !important;
+  }
+
+  .hero-card{
+    padding:26px 22px 32px !important;
+  }
+
+  .hero-title{
+    font-size:clamp(46px, 13.6vw, 60px) !important;
+  }
+
+  .hero-subtitle{
+    font-size:clamp(24px, 6.7vw, 30px) !important;
+  }
+
+  .intro{
+    font-size:16.8px !important;
+  }
+
+  .time-note{
+    font-size:16px !important;
+  }
+}
+
+
+/* --- v9 touch-state fix --- */
+button, .btn, .share-btn{
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+.answer{
+  -webkit-appearance:none;
+  appearance:none;
+}
+.answer:focus,
+.answer:focus-visible{
+  outline:none;
+}
+@media (hover:hover) and (pointer:fine){
+  .btn:not(.answer):hover{
+    transform:translateY(-1px);
+    box-shadow:0 12px 32px rgba(239,190,76,.3);
+  }
+  .answer:hover{
+    transform:translateX(3px);
+    border-color:rgba(255,215,120,.72);
+    background:rgba(243,199,95,.09);
+  }
+}
+@media (hover:none), (pointer:coarse){
+  .answer:hover,
+  .answer:focus,
+  .answer:focus-visible{
+    transform:none !important;
+    background:rgba(255,255,255,.035) !important;
+    border-color:rgba(241,196,92,.22) !important;
+    color:#f8f8f1 !important;
+    box-shadow:none !important;
+  }
+  .answer:active{
+    background:rgba(243,199,95,.13) !important;
+    border-color:rgba(255,215,120,.72) !important;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -654,7 +844,7 @@ h2{
         <span>Специальный представитель</span>
         <span>Международного бизнес-колледжа FOHOW</span>
       </div>
-      <a class="author-link" href="https://t.me/KataKiril" target="_blank" rel="noopener">Связаться с Катериной →</a>
+      
     </div>
   </div>
   <div class="card" id="app"></div>
@@ -668,7 +858,14 @@ let a=Array(60).fill(null),i=0;
 const app=document.getElementById("app");
 function intro(){app.innerHTML=`<div class="kicker">FOHOW • Практическая встреча</div><h1>Моя конституция</h1><div class="subtitle">Понять себя и увидеть свою картину</div><p>60 коротких вопросов о вашем обычном состоянии. Здесь нет правильных и неправильных ответов — выбирайте то, что ближе всего к вашим ощущениям за последний год.</p><p><strong>Около 7–10 минут.</strong> В конце вы получите свой профиль CCMQ. Сохраните его — на встрече мы будем работать именно с вашей картой.</p><button class="btn primary" onclick="q()">Начать анкету</button>`}
 function q(){let p=Math.round(i/60*100);app.innerHTML=`<div class="progress"><b style="width:${p}%"></b></div><div class="meta"><span>Ваш профиль формируется</span><span>${p}%</span></div><div class="question-wrap"><h2>${Q[i]}</h2></div><div id="answers">${opts.map(x=>`<button class="btn answer" onclick="pick(${x[1]})">${x[0]}</button>`).join("")}</div>`}
-function pick(v){a[i]=v;i++;if(i>=60)return result();if([10,20,30,40,50].includes(i))return mile();q()}
+function pick(v){
+  if(document.activeElement && document.activeElement.blur) document.activeElement.blur();
+  a[i]=v;
+  i++;
+  if(i>=60)return result();
+  if([10,20,30,40,50].includes(i))return mile();
+  q()
+}
 function mile(){let m={10:"Профиль уже начинает складываться.",20:"Хороший темп. Продолжайте отвечать интуитивно.",30:"Больше половины пути уже позади.",40:"Картина становится всё точнее.",50:"Осталось совсем немного."};let p=Math.round(i/60*100);app.innerHTML=`<div class="progress"><b style="width:${p}%"></b></div><div class="mid"><div class="kicker">Ваш профиль формируется • ${p}%</div><h2>${m[i]}</h2><p>Не анализируйте ответы слишком долго — выбирайте то, что чаще всего похоже на ваше обычное состояние.</p><button class="btn primary" onclick="q()">Продолжить</button></div>`}
 function score(name,qs){let sum=0;qs.forEach(n=>{let v=a[n-1];if(name==="Сбалансированный тип"&&R.includes(n))v=6-v;sum+=v});let N=qs.length;return (sum-N)*100/(N*4)}
 function result(){
@@ -698,12 +895,11 @@ function result(){
 
   const resultText = ordered.map(r=>`${r.n}: ${Math.round(r.s)}`).join("\n");
   const fullShareText = `Мой результат CCMQ
+
 ${resultText}
 
-Катерина Кирилюк — специальный представитель Международного бизнес-колледжа FOHOW
-Telegram: @KataKiril
-WhatsApp: +7 911 007-15-36
-Instagram: @katerina_fohow`;
+CCMQ • FOHOW
+Катерина Кирилюк`;
   window.__ccmqShareText = fullShareText;
 
   const waText = encodeURIComponent(`Здравствуйте, Катерина! Я прошёл(а) анкету CCMQ.
@@ -749,8 +945,7 @@ async function shareResult(){
   const text = window.__ccmqShareText || "Мой результат CCMQ";
   const data = {
     title: "Мой результат CCMQ",
-    text,
-    url: window.location.href
+    text
   };
   if(navigator.share){
     try{
@@ -761,7 +956,7 @@ async function shareResult(){
     }
   }
   try{
-    await navigator.clipboard.writeText(text + "\n" + window.location.href);
+    await navigator.clipboard.writeText(text);
     alert("Результат скопирован. Теперь его можно вставить в Telegram, WhatsApp, MAX, почту или другое приложение.");
   }catch(e){
     alert("Не удалось открыть меню отправки. Используйте кнопку «Скопировать результат» ниже.");
@@ -769,7 +964,7 @@ async function shareResult(){
 }
 
 async function copyResult(){
-  const text = (window.__ccmqShareText || "Мой результат CCMQ") + "\n" + window.location.href;
+  const text = (window.__ccmqShareText || "Мой результат CCMQ");
   try{
     await navigator.clipboard.writeText(text);
     alert("Результат скопирован.");
