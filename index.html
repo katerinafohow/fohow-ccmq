@@ -843,6 +843,198 @@ button, .btn, .share-btn{
   transform:scale(.985) !important;
 }
 
+
+/* --- v11 result interpretation + Katya funnel --- */
+.result-hero{
+  position:relative;
+  z-index:1;
+  margin:22px 0 18px;
+  padding:24px 24px 22px;
+  border:1px solid rgba(241,196,92,.36);
+  border-radius:22px;
+  background:linear-gradient(180deg,rgba(241,196,92,.11),rgba(255,255,255,.025));
+  box-shadow:inset 0 1px rgba(255,255,255,.04);
+}
+.result-label{
+  color:#f1c45c;
+  font-size:12px;
+  font-weight:900;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  margin-bottom:9px;
+}
+.result-name{
+  color:#fff;
+  font-family:"Arial Narrow",Impact,Arial,sans-serif;
+  font-size:clamp(29px,5vw,46px);
+  line-height:1.02;
+  text-transform:uppercase;
+  margin:0 0 12px;
+}
+.result-level{
+  display:inline-block;
+  margin-bottom:14px;
+  padding:7px 10px;
+  border-radius:999px;
+  background:rgba(241,196,92,.12);
+  border:1px solid rgba(241,196,92,.28);
+  color:#ffe08b;
+  font-size:12px;
+  font-weight:900;
+}
+.result-copy{
+  color:#e5ebe6;
+  font-size:17px;
+  line-height:1.55;
+  margin:0;
+}
+.secondary-result{
+  position:relative;
+  z-index:1;
+  margin:14px 0 0;
+  padding:17px 18px;
+  border-radius:18px;
+  background:rgba(255,255,255,.035);
+  border:1px solid rgba(241,196,92,.18);
+}
+.secondary-result strong{color:#fff}
+.secondary-result p{margin:6px 0 0;font-size:15px;line-height:1.48}
+.insight-box{
+  position:relative;
+  z-index:1;
+  margin:24px 0 0;
+  padding:21px 22px;
+  border-left:3px solid #f1c45c;
+  border-radius:0 18px 18px 0;
+  background:rgba(0,0,0,.16);
+}
+.insight-box .insight-title{
+  color:#fff;
+  font-size:18px;
+  font-weight:900;
+  margin-bottom:8px;
+}
+.insight-box p{margin:0;font-size:16px;line-height:1.52}
+.next-step-box{
+  position:relative;
+  z-index:1;
+  margin:24px 0 0;
+  padding:22px;
+  border-radius:20px;
+  background:rgba(241,196,92,.075);
+  border:1px solid rgba(241,196,92,.24);
+}
+.next-step-title{
+  color:#f1c45c;
+  font-size:14px;
+  font-weight:900;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+  margin-bottom:10px;
+}
+.next-step-box ul{
+  margin:0;
+  padding-left:20px;
+  color:#e5ebe6;
+  font-size:15px;
+  line-height:1.55;
+}
+.next-step-box li+li{margin-top:5px}
+.katya-cta{
+  min-height:72px !important;
+  margin-top:0 !important;
+  text-decoration:none;
+  text-align:center;
+  display:flex !important;
+  align-items:center;
+  justify-content:center;
+}
+.contact-choice{
+  position:relative;
+  z-index:1;
+  margin-top:18px;
+}
+.contact-choice-title{
+  color:#fff;
+  font-size:20px;
+  line-height:1.25;
+  font-weight:900;
+  text-align:center;
+  margin-bottom:12px;
+}
+.contact-choice-note{
+  color:#bfc8c1;
+  font-size:13px;
+  line-height:1.45;
+  text-align:center;
+  margin:0 0 14px;
+}
+.contact-choice-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+.contact-choice-grid .katya-cta{
+  font-size:18px !important;
+  text-transform:none !important;
+  letter-spacing:.01em !important;
+}
+@media(max-width:560px){
+  .contact-choice-grid{
+    grid-template-columns:1fr;
+  }
+  .contact-choice-grid .katya-cta{
+    min-height:66px !important;
+    font-size:17px !important;
+  }
+}
+.result-actions{
+  position:relative;
+  z-index:1;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+  margin-top:12px;
+}
+.result-actions .share-btn{width:100%}
+.all-scales-title{
+  position:relative;
+  z-index:1;
+  margin:31px 0 8px;
+  color:#fff;
+  font-size:21px;
+  font-weight:900;
+}
+.all-scales-note{
+  margin:0 0 18px;
+  font-size:14px;
+  line-height:1.45;
+}
+.row.lead-scale{
+  padding:13px 14px;
+  margin-left:-14px;
+  margin-right:-14px;
+  border-radius:15px;
+  background:rgba(241,196,92,.07);
+  border:1px solid rgba(241,196,92,.15);
+}
+.contact-note{
+  position:relative;
+  z-index:1;
+  margin:22px 0 0;
+  color:#bfc8c1;
+  font-size:13px;
+  line-height:1.45;
+  text-align:center;
+}
+@media(max-width:560px){
+  .result-hero{padding:20px 18px}
+  .result-copy{font-size:16px}
+  .insight-box,.next-step-box{padding:18px}
+  .result-actions{grid-template-columns:1fr}
+  .katya-cta{font-size:18px !important;min-height:70px !important}
+}
+
 </style>
 </head>
 <body>
@@ -884,6 +1076,50 @@ function pick(v, el){
 }
 function mile(){let m={10:"Профиль уже начинает складываться.",20:"Хороший темп. Продолжайте отвечать интуитивно.",30:"Больше половины пути уже позади.",40:"Картина становится всё точнее.",50:"Осталось совсем немного."};let p=Math.round(i/60*100);app.innerHTML=`<div class="progress"><b style="width:${p}%"></b></div><div class="mid"><div class="kicker">Ваш профиль формируется • ${p}%</div><h2>${m[i]}</h2><p>Не анализируйте ответы слишком долго — выбирайте то, что чаще всего похоже на ваше обычное состояние.</p><button class="btn primary" onclick="q()">Продолжить</button></div>`}
 function score(name,qs){let sum=0;qs.forEach(n=>{let v=a[n-1];if(name==="Сбалансированный тип"&&R.includes(n))v=6-v;sum+=v});let N=qs.length;return (sum-N)*100/(N*4)}
+const INTERPRETATIONS={
+  "Сбалансированный тип":{
+    short:"Ваши ответы больше похожи на устойчивую, хорошо адаптирующуюся картину: энергия, сон, аппетит и восстановление в целом сохраняют баланс.",
+    hook:"Задача здесь — не «исправлять тип», а понять, что помогает вам удерживать ресурс и где находятся ваши индивидуальные слабые места."
+  },
+  "Дефицит Ци":{
+    short:"Эта шкала связана с ощущением, что функционального ресурса иногда не хватает: быстрее приходит усталость, нагрузка переносится тяжелее, может хотеться больше тишины и восстановления.",
+    hook:"Важный вопрос — что именно забирает ресурс у вас и какая из соседних тенденций усиливает эту картину."
+  },
+  "Дефицит Ян":{
+    short:"В этой картине чаще проявляются зябкость, холодные руки или ноги, снижение активности и ощущение, что организму сложнее сохранять тепло и темп.",
+    hook:"На личном разборе важно отделить устойчивую конституциональную тенденцию от ситуативной реакции на режим, питание и нагрузку."
+  },
+  "Дефицит Инь":{
+    short:"Здесь чаще заметны признаки нехватки «питающего и охлаждающего» ресурса: сухость, внутренний жар, беспокойный сон или ощущение перегрева при усталости.",
+    hook:"Смысл не в одном признаке, а в том, с чем эта тенденция сочетается именно в вашей карте."
+  },
+  "Флегма–Сырость":{
+    short:"Эта тенденция обычно связана с ощущением тяжести, вялости, склонностью к накоплению и признаками того, что организму сложнее свободно перерабатывать и выводить лишнее.",
+    hook:"Очень важно посмотреть, идёт ли эта картина вместе с дефицитом ресурса или, наоборот, с признаками жара — тактика будет отличаться."
+  },
+  "Сырость–Жар":{
+    short:"В этой шкале соединяются признаки тяжести и внутреннего жара: могут сильнее проявляться жирность кожи, горечь или липкость во рту, тяжесть и другие «горячие» реакции.",
+    hook:"Сочетание с другими шкалами показывает, что сейчас важнее: разгрузить систему, восстановить ресурс или сначала изменить повседневный режим."
+  },
+  "Застой Крови":{
+    short:"Эта шкала описывает тенденцию к застойным проявлениям: могут чаще отмечаться синяки, более тёмный оттенок, локальный дискомфорт или другие признаки замедленного движения.",
+    hook:"Отдельная цифра здесь мало что решает — полезнее понять, что в вашем образе жизни поддерживает эту картину и с чем она связана."
+  },
+  "Застой Ци":{
+    short:"Здесь заметнее связь состояния с эмоциональным напряжением: внутреннее сдавление, вздохи, переменчивые ощущения, чувствительность к стрессу и перегрузке.",
+    hook:"На разборе важно увидеть, что запускает эту реакцию у вас и как она влияет на остальные показатели."
+  },
+  "Особая конституция":{
+    short:"Эта шкала показывает повышенную индивидуальную чувствительность: склонность к аллергическим, необычным или более выраженным реакциям на внешние факторы.",
+    hook:"Здесь особенно ценен персональный подход: важны ваши конкретные триггеры и то, как эта чувствительность сочетается с остальными шкалами."
+  }
+};
+function levelLabel(r,isBalanced){
+  if(isBalanced && r.n==="Сбалансированный тип") return "сбалансированный профиль";
+  if(r.s>=40) return "выраженная тенденция";
+  if(r.s>=30) return "заметная тенденция";
+  return "наиболее заметная шкала";
+}
 function result(){
   let rs=Object.entries(S).map(([n,qs])=>({n,s:score(n,qs)}));
   const balanced=rs.find(r=>r.n==="Сбалансированный тип");
@@ -892,67 +1128,101 @@ function result(){
   const tendencies=unbalanced.filter(r=>r.s>=30&&r.s<40).sort((a,b)=>b.s-a.s);
   const isBalanced=balanced.s>=60 && unbalanced.every(r=>r.s<30);
 
-  let headline=isBalanced ? "Сбалансированный профиль" : "Ваш профиль CCMQ";
-  let leadItems=[];
-  if(isBalanced){
-    leadItems=[balanced];
-  }else{
-    leadItems=[...expressed,...tendencies].slice(0,3);
-    if(leadItems.length===0){
-      leadItems=unbalanced.slice().sort((a,b)=>b.s-a.s).filter(r=>r.s>0).slice(0,3);
-    }
-  }
+  const sortedUnbalanced=unbalanced.slice().sort((a,b)=>b.s-a.s);
+  const primary=isBalanced ? balanced : (expressed[0] || tendencies[0] || sortedUnbalanced.find(r=>r.s>0) || sortedUnbalanced[0]);
+  const secondary=!isBalanced
+    ? sortedUnbalanced.find(r=>r.n!==primary.n && r.s>=30)
+    : null;
 
-  const chips = leadItems.length
-    ? leadItems.map(r=>`<span class="tag">${r.n} · ${Math.round(r.s)}</span>`).join("")
-    : `<span class="tag">Выраженных тенденций не выявлено</span>`;
+  const primaryInfo=INTERPRETATIONS[primary.n] || {short:"Ваш профиль сформирован.",hook:"Важнее всего рассматривать сочетание показателей, а не отдельную цифру."};
+  const secondaryInfo=secondary ? INTERPRETATIONS[secondary.n] : null;
 
-  const ordered=[balanced,...unbalanced.sort((a,b)=>b.s-a.s)];
+  const ordered=[balanced,...sortedUnbalanced];
+  const resultText=ordered.map(r=>`${r.n}: ${Math.round(r.s)}`).join("\n");
+  const leadText=isBalanced
+    ? `Профиль: Сбалансированный тип — ${Math.round(balanced.s)}`
+    : `Ведущая шкала: ${primary.n} — ${Math.round(primary.s)}${secondary?`\nДополнительная тенденция: ${secondary.n} — ${Math.round(secondary.s)}`:""}`;
 
-  const resultText = ordered.map(r=>`${r.n}: ${Math.round(r.s)}`).join("\n");
-  const fullShareText = `Мой результат CCMQ
+  const fullShareText=`Мой результат CCMQ\n\n${leadText}\n\nВсе 9 шкал:\n${resultText}\n\nCCMQ • FOHOW\nКатерина Кирилюк`;
+  window.__ccmqShareText=fullShareText;
 
-${resultText}
-
-CCMQ • FOHOW
-Катерина Кирилюк`;
-  window.__ccmqShareText = fullShareText;
-
-  const waText = encodeURIComponent(`Здравствуйте, Катерина! Я прошёл(а) анкету CCMQ.
-
-${resultText}`);
-  const waUrl = `https://wa.me/79110071536?text=${waText}`;
+  const shortContactResult=isBalanced
+    ? `Сбалансированный профиль — ${Math.round(balanced.s)}`
+    : `${primary.n} — ${Math.round(primary.s)}${secondary?`; ${secondary.n} — ${Math.round(secondary.s)}`:""}`;
+  const contactMessage=`Катя, я прошёл(а) CCMQ. Мой результат: ${shortContactResult}. Хочу разобрать, что означает это сочетание и с чего мне лучше начать.`;
+  const encodedContactMessage=encodeURIComponent(contactMessage);
+  const waUrl=`https://wa.me/79110071536?text=${encodedContactMessage}`;
+  const tgUrl=`https://t.me/KataKiril?text=${encodedContactMessage}`;
+  const primaryLevel=levelLabel(primary,isBalanced);
+  const leadNames=new Set([primary.n,secondary&&secondary.n].filter(Boolean));
 
   app.innerHTML=`
     <div class="kicker">Ваш результат готов</div>
     <h1>Моя конституция</h1>
-    <div class="subtitle">${headline}</div>
+    <div class="subtitle">${isBalanced ? "Сбалансированный профиль" : "Ваша личная карта CCMQ"}</div>
     <p>${isBalanced
-      ? "По результатам анкеты сбалансированный тип выражен, а другие конституциональные тенденции не достигают пороговых значений."
-      : "Это не один «тип», а сочетание нескольких тенденций. Ниже — ваша индивидуальная карта."}</p>
-    <div>${chips}</div>
-    <div class="gold-line"></div>
+      ? "Профиль выглядит достаточно устойчивым. Но даже при хорошем балансе полезно видеть индивидуальные особенности и понимать, что помогает его сохранять."
+      : "Перед вами не диагноз и не один жёсткий «тип», а сочетание конституциональных тенденций. Самое важное — как ведущие показатели взаимодействуют между собой."}</p>
+
+    <div class="result-hero">
+      <div class="result-label">${isBalanced ? "Ваш профиль" : "Ведущая тенденция"}</div>
+      <div class="result-name">${primary.n}</div>
+      <div class="result-level">${primaryLevel} · ${Math.round(primary.s)}</div>
+      <p class="result-copy">${primaryInfo.short}</p>
+    </div>
+
+    ${secondary ? `
+      <div class="secondary-result">
+        <strong>Дополняет картину: ${secondary.n} · ${Math.round(secondary.s)}</strong>
+        <p>${secondaryInfo.short}</p>
+      </div>` : ""}
+
+    <div class="insight-box">
+      <div class="insight-title">Вот где начинается самое интересное</div>
+      <p>${primaryInfo.hook} <strong>Поэтому две одинаковые верхние цифры у разных людей ещё не означают одинаковый следующий шаг.</strong></p>
+    </div>
+
+    <div class="next-step-box">
+      <div class="next-step-title">Что даст личный разбор с Катей</div>
+      <ul>
+        <li>свяжем ваши ведущие шкалы с тем, что вы замечаете в обычной жизни;</li>
+        <li>определим, на что разумнее обратить внимание в первую очередь;</li>
+        <li>выберем первый шаг в логике Ян-Шэн и, если это уместно для вашей карты, подходящий формат или продукты FOHOW.</li>
+      </ul>
+    </div>
+
+    <div class="contact-choice">
+      <div class="contact-choice-title">Разобрать мой профиль с Катей</div>
+      <p class="contact-choice-note">Выберите удобный мессенджер. Короткое сообщение с ведущими показателями уже будет подготовлено — отправку подтверждаете вы сами.</p>
+      <div class="contact-choice-grid">
+        <a class="btn primary katya-cta" href="${waUrl}" target="_blank" rel="noopener">WhatsApp</a>
+        <a class="btn primary katya-cta" href="${tgUrl}" target="_blank" rel="noopener">Telegram</a>
+      </div>
+    </div>
+
+    <div class="result-actions">
+      <button class="share-btn" onclick="shareResult()">Сохранить / отправить результат</button>
+      <button class="share-btn" onclick="copyResult()">Скопировать результат</button>
+    </div>
+
+    <div class="all-scales-title">Все 9 шкал</div>
+    <p class="all-scales-note">Цифры нужны как карта. Сами по себе они не заменяют разбор сочетаний и ваших личных наблюдений.</p>
     ${ordered.map(r=>`
-      <div class="row">
+      <div class="row ${leadNames.has(r.n)?"lead-scale":""}">
         <div class="head"><span>${r.n}</span><span>${Math.round(r.s)}</span></div>
         <div class="bar"><i style="width:${Math.max(0,Math.min(100,r.s))}%"></i></div>
       </div>`).join("")}
 
-    <p><strong>Сохраните или отправьте этот результат.</strong> На встрече мы разберём, что означают ваши ведущие показатели и как они складываются в индивидуальную картину.</p>
-
-    <button class="btn primary" onclick="shareResult()">Отправить / сохранить результат</button>
-
     <div class="share-block">
-      <div class="share-title">Связаться с Катериной</div>
+      <div class="share-title">Контакты Катерины</div>
       <div class="share-grid">
-        <a class="share-btn" href="${waUrl}" target="_blank" rel="noopener">WhatsApp Катерины</a>
-        <a class="share-btn" href="https://t.me/KataKiril" target="_blank" rel="noopener">Telegram @KataKiril</a>
+        <a class="share-btn" href="${waUrl}" target="_blank" rel="noopener">WhatsApp — отправить мой профиль</a>
+        <a class="share-btn" href="${tgUrl}" target="_blank" rel="noopener">Telegram — отправить мой профиль</a>
         <a class="share-btn" href="https://www.instagram.com/katerina_fohow/" target="_blank" rel="noopener">Instagram @katerina_fohow</a>
-        <button class="share-btn" onclick="copyResult()">Скопировать результат</button>
       </div>
-      <div class="copy-note">Кнопка «Отправить / сохранить результат» открывает системное меню телефона — через него можно выбрать Telegram, WhatsApp, MAX, почту или другое приложение.</div>
     </div>
 
+    <div class="contact-note">Сохраните результат: он станет вашей рабочей картой на встрече.</div>
     <button class="btn answer" onclick="location.reload()">Пройти заново</button>
   `;
 }
